@@ -1,5 +1,6 @@
 import express from 'express';
 import type { Request, Response } from 'express';
+import { pets } from './data/pet.ts';
 
 const PORT = 8000
 const app = express()
