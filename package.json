@@ -21,15 +21,6 @@
     "url": "https://github.com/abhinavan00/Pet_Shelter_API/issues"
   },
   "homepage": "https://github.com/abhinavan00/Pet_Shelter_API#readme",
-  "dependencies": {
-    "express": "^5.2.1"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.6",
-    "@types/node": "^26.4.1",
-    "tsx": "^4.23.13",
-    "typescript": "^7.0.2"
-  },
   "allowScripts": {
     "esbuild@0.28.2": true
   }
