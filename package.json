@@ -1,0 +1,28 @@
+{
+  "name": "pet_shelter_api",
+  "version": "1.0.0",
+  "description": "An api that return the pet details available at pet shelter. ",
+  "homepage": "https://github.com/abhinavan00/Pet_Shelter_API#readme",
+  "bugs": {
+    "url": "https://github.com/abhinavan00/Pet_Shelter_API/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhinavan00/Pet_Shelter_API.git"
+  },
+  "license": "ISC",
+  "author": "Abhinav",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.1",
+    "typescript": "^7.0.2"
+  }
+}
