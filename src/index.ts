@@ -1,9 +1,9 @@
-import express, {type Express, type Request, type Response} from "express";
+import express from "express";
 
 const PORT = 8000
-const app: Express = express()
+const app = express()
 
-app.get('/', (req:Request, res:Response) => {
+app.get('/', (req, res) => {
     res.json('Hello World!')
     console.log('Hello from frontEnd!')
 })
