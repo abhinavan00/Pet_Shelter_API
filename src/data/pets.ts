@@ -1,4 +1,21 @@
-export const pets = [
+export type Pet = {
+    id: number,  
+    name: string,  
+    species: string,  
+    breed: string,  
+    age: number,  
+    adopted: boolean,  
+    intakeDate: Date,  
+    adoptionDate?: Date,
+    medicalRecord: {  
+        vaccinations: string[],  
+        weightKg: number,  
+        microchipId: null | string 
+    },  
+    photo: string
+}
+
+export const pets: Pet[] = [
     {  
         id: 1,  
         name: "Bella",  
