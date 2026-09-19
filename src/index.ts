@@ -7,11 +7,14 @@ const app: Express = express()
 
 app.use(cors())
 
-app.get('/', (req:Request, res:Response<Pet[]>):void => {
+app.get('/', (
+    req:Request<{}, unknown, {}, {species?:string} >, 
+    res:Response<Pet[]>
+):void => {
     const { species } = req.query
     let filteredPets = pets
 
-    if(typeof species === 'string') {
+    if(species ) {
         filteredPets = filteredPets.filter(pet => 
             pet.species.toLowerCase() === species.toLowerCase()
         )
