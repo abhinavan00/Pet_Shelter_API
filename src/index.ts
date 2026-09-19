@@ -8,14 +8,26 @@ const app: Express = express()
 app.use(cors())
 
 app.get('/', (req:Request, res:Response<Pet[]>):void => {
-    res.json(pets)
+    const { species } = req.query
+    let filteredPets = pets
+
+    if(species) {
+        filteredPets = filteredPets.filter(pet => 
+            pet.species.toLowerCase() === JSON.stringify(species).toLowerCase()
+        )
+    }
+    res.json(filteredPets)
 })
 
-app.get('/:id', (req:Request, res:Response<Pet>):void => {
+app.get('/:id', (req:Request, res:Response<Pet | {message:string}>):void => {
     const { id } = req.params
-
     const matchpet = pets.find(pet => pet.id === Number(id))
-    res.json(matchpet)
+
+    if(matchpet) {
+        res.json(matchpet)
+    } else {
+        res.status(404).json({message: 'Pet not found!'})
+    }  
 })
 
 app.use((req:Request, res:Response<{message:string}> ):void => {
