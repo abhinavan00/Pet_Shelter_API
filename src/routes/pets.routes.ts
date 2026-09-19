@@ -1,4 +1,5 @@
 import express, {type Router, type Request, type Response} from 'express';
+import { getPets } from '../controllers/pets.controllers.ts';
 import { pets, type Pet } from '../data/pets.ts';
 
 export const router:Router = express.Router()
@@ -10,39 +11,7 @@ type PetQueryParams = {
     maxAge?:string
 }
 
-router.get('/', (
-    req:Request<{}, unknown, {}, PetQueryParams>, 
-    res:Response<Pet[]>
-):void => {
-    const { species, adopted, minAge, maxAge } = req.query
-        let filteredPets = pets
-    
-        if(species) {
-            filteredPets = filteredPets.filter(pet => 
-                pet.species.toLowerCase() === species.toLowerCase()
-            )
-        }
-    
-        if(adopted) {
-            filteredPets = filteredPets.filter(pet => 
-                pet.adopted === JSON.parse(adopted.toLowerCase())
-            )
-        }
-    
-        if(minAge) {
-            filteredPets = filteredPets.filter(pet => 
-                pet.age >= JSON.parse(minAge)
-            )
-        }
-    
-        if(maxAge) {
-            filteredPets = filteredPets.filter(pet => 
-                pet.age <= JSON.parse(maxAge) 
-            )
-        }
-    
-        res.json(filteredPets)
-})
+router.get('/', getPets)
 
 router.get('/:id', (
     req:Request<{id:string}>, 
