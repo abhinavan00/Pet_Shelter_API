@@ -11,9 +11,9 @@ app.get('/', (req:Request, res:Response<Pet[]>):void => {
     const { species } = req.query
     let filteredPets = pets
 
-    if(species) {
+    if(typeof species === 'string') {
         filteredPets = filteredPets.filter(pet => 
-            pet.species.toLowerCase() === JSON.stringify(species).toLowerCase()
+            pet.species.toLowerCase() === species.toLowerCase()
         )
     }
     res.json(filteredPets)
