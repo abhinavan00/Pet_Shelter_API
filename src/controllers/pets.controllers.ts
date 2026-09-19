@@ -41,3 +41,17 @@ export const getPets = (
 
     res.json(filteredPets)
 }
+
+export const getPetById = (
+    req:Request<{id:string}>,
+    res:Response<Pet | {message:string}>
+):void => {
+    const { id } = req.params
+    const matchpet = pets.find(pet => pet.id === Number(id))
+
+    if(matchpet) {
+        res.json(matchpet)
+    } else {
+        res.status(404).json({message: 'Pet not found!'})
+    }
+}
